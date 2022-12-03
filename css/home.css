@@ -15,7 +15,7 @@ a {
   width: 100%;
 }
 .left-container {
-  background-color: #f9f9f9;
+  background-color: rgb(39, 39, 39);
   height: 100%;
   width: 20%;
 }
@@ -25,8 +25,13 @@ a {
   height: 100%;
   width: 80%;
 }
+
 .menu {
   margin-top: 20px;
+}
+.logo {
+  margin: 20px;
+  text-align: center;
 }
 ul li {
   list-style: none;
@@ -46,7 +51,7 @@ ul li {
 }
 
 .search-button {
-  background-color: #4681f4;
+  background-color: #ff7300;
   color: white;
 }
 span {
@@ -57,4 +62,15 @@ span {
 a > img {
   vertical-align: middle;
   margin-right: 10px;
+}
+
+hr {
+  width: 80%;
+}
+
+span {
+  color: rgb(168, 168, 168);
+}
+span:hover {
+  color: #f9f9f9;
 }
