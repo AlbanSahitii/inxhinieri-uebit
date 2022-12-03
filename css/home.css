@@ -5,13 +5,17 @@ body {
   height: 100%;
   margin: 0;
 }
+a {
+  text-decoration: none;
+  color: black;
+}
 .container {
   display: flex;
   height: 100%;
   width: 100%;
 }
 .left-container {
-  background-color: red;
+  background-color: #f9f9f9;
   height: 100%;
   width: 20%;
 }
@@ -21,10 +25,13 @@ body {
   height: 100%;
   width: 80%;
 }
-
+.menu {
+  margin-top: 20px;
+}
 ul li {
   list-style: none;
-  margin-top: 5px;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 .search {
@@ -41,4 +48,13 @@ ul li {
 .search-button {
   background-color: #4681f4;
   color: white;
+}
+span {
+  text-align: center;
+  vertical-align: middle;
+}
+
+a > img {
+  vertical-align: middle;
+  margin-right: 10px;
 }
