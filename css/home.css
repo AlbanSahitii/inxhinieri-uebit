@@ -21,7 +21,7 @@ a {
 }
 
 .right-container {
-  background-color: green;
+  margin: 30px;
   height: 100%;
   width: 80%;
 }
@@ -39,7 +39,8 @@ ul li {
   margin-bottom: 20px;
 }
 
-.search {
+.search,
+.profile-settings {
   margin: 20px;
 }
 
@@ -73,4 +74,9 @@ span {
 }
 span:hover {
   color: #f9f9f9;
+}
+
+.profile-settings {
+  display: flex;
+  justify-content: space-between;
 }
