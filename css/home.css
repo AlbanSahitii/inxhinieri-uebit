@@ -1,5 +1,5 @@
 * {
-  font-family: "Proxima Nova";
+  font-family: "Roboto", sans-serif;
 }
 html {
   height: 100%;
@@ -29,8 +29,9 @@ a {
   width: 80%;
 }
 
-.menu {
-  margin-top: 20px;
+.menu > ul {
+  margin: 20px;
+  padding: 0;
 }
 .logo {
   margin: 20px;
@@ -58,7 +59,7 @@ ul li {
   background-color: #ff7300;
   color: white;
 }
-span {
+.menu span {
   text-align: center;
   vertical-align: middle;
 }
@@ -72,10 +73,12 @@ hr {
   width: 90%;
 }
 
-span {
+.menu span,
+.profile-settings span {
   color: rgb(168, 168, 168);
 }
-span:hover {
+.menu span:hover,
+.profile-settings span:hover {
   color: #f9f9f9;
 }
 
@@ -90,16 +93,22 @@ h1 {
   line-height: 80%;
 }
 
-.watch-list {
+.watch-list,
+.upcomming-list {
   width: auto;
 }
+.upcomming-list {
+  margin-top: 30px;
+}
 
-.watch-list > ul {
+.watch-list > ul,
+.upcomming-list > ul {
   display: inline-block;
   margin: 5px;
   padding-left: 1%;
 }
 
-.watch-list > ul > li {
+.watch-list > ul > li,
+.upcomming-list > ul > li {
   margin: 5px;
 }
