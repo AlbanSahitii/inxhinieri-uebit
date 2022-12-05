@@ -1,3 +1,6 @@
+* {
+  font-family: "Proxima Nova";
+}
 html {
   height: 100%;
 }
@@ -22,7 +25,7 @@ a {
 
 .right-container {
   margin: 30px;
-  height: 100%;
+  height: auto;
   width: 80%;
 }
 
@@ -66,7 +69,7 @@ a > img {
 }
 
 hr {
-  width: 80%;
+  width: 90%;
 }
 
 span {
@@ -79,4 +82,24 @@ span:hover {
 .profile-settings {
   display: flex;
   justify-content: space-between;
+}
+
+h1 {
+  color: #666;
+  font-weight: normal;
+  line-height: 80%;
+}
+
+.watch-list {
+  width: auto;
+}
+
+.watch-list > ul {
+  display: inline-block;
+  margin: 5px;
+  padding-left: 1%;
+}
+
+.watch-list > ul > li {
+  margin: 5px;
 }
