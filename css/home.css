@@ -11,7 +11,8 @@ body {
 a {
   text-decoration: none;
   color: black;
-  word-wrap: break-word;}
+  word-wrap: break-word;
+}
 .container {
   display: flex;
   height: 100%;
@@ -27,8 +28,7 @@ a {
   margin: 30px;
   height: auto;
   width: 80%;
-  box-sizing:border-box
-
+  box-sizing: border-box;
 }
 
 .menu > ul {
@@ -47,7 +47,7 @@ ul li {
 
 .search,
 .profile-settings {
-  box-sizing:border-box
+  box-sizing: border-box;
   margin: 20px;
 }
 
@@ -193,7 +193,4 @@ h1 {
 .contact-form textarea {
   max-height: 200px;
   max-width: 500px;
-}
-
-@media screen and (max-width: 850) {
 }
