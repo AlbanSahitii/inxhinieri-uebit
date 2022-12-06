@@ -113,3 +113,44 @@ h1 {
 .upcomming-list > ul > li {
   margin: 5px;
 }
+.right-container-movies {
+  width: 80%;
+  height: auto;
+  margin: 5px;
+}
+.info {
+  width: 100%;
+  height: 300px;
+  text-align: center;
+  background: -webkit-linear-gradient(360deg, #383836 10%, #4a4a4a 360%);
+  background: linear-gradient(360deg, #383836 10%, #4a4a4a 360%);
+}
+.info h1,
+.info h2 {
+  color: white;
+  margin-top: 30px;
+  display: inline-block;
+}
+
+.info img {
+  vertical-align: middle;
+}
+
+.under-info {
+  width: 100%;
+  height: 7%;
+  background-color: #efefec;
+}
+
+.description {
+  margin-top: 10px;
+  width: 100%;
+  background-color: #efefec;
+  -webkit-box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+}
+
+.description > p {
+  padding: 20px;
+}
