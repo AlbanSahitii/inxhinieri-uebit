@@ -58,7 +58,7 @@ const watchlistMovement = function () {
         // i = index
         const html = `<ul>
   <li>
-    <a href="#"><img src="images/eye20px.png" /> </a>
+    <a href="#"><img src="assets/image/eye20px.png" /> </a>
   </li>
   <li>
     <img src="${mov.image}" />
