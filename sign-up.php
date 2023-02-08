@@ -16,23 +16,27 @@
             </div>
             <p class="text">or use your email for registration:</p>
             <div class="form-group">
-                <input type="text" class="input-design" id="username" placeholder="Name">
+                <input type="text" class="input-design" id="username" placeholder="Name" name="name">
                 <small class="small">input incorrect</small>
             </div>
             <div class="form-group">
-                <input type="text" class="input-design" id="email" placeholder="Email">
+                <input type="text" class="input-design" id="email" placeholder="Email" name="email">
                 <small class="small">input incorrect</small>
             </div>
             <div class="form-group">
-                <input type="password" class="input-design" id="password" placeholder="Password">
+                <input type="text" class="input-design" id="username" placeholder="Username" name="username">
                 <small class="small">input incorrect</small>
             </div>
             <div class="form-group">
-                <input type="password" class="input-design" id="password2" placeholder="Confirm Password">
+                <input type="password" class="input-design" id="password" placeholder="Password" name="password">
+                <small class="small">input incorrect</small>
+            </div>
+            <div class="form-group">
+                <input type="password" class="input-design" id="password2" placeholder="Confirm Password" name="confirmPassword">
                 <small class="small">input incorrect</small>
             </div>
             <div class="button-group">
-                <input type="submit" value="Sign Up" class="button">
+                <input type="submit" class="button" name="submit">
             </div>
             <div class="redirect-group">
                 <p>I have an account.</p><a href="login.html" id="redirect">Log in</a>
