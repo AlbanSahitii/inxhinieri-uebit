@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="container">
-        <form id="form">
+        <form id="form" method="POST" action="includes/signup.inc.php" >
             <div class="header">
                 <h2>Create Account</h2>
             </div>
@@ -36,14 +36,60 @@
                 <small class="small">input incorrect</small>
             </div>
             <div class="button-group">
-                <input type="submit" class="button" name="submit">
+                <input class="button" type="submit" name="submit">
             </div>
             <div class="redirect-group">
                 <p>I have an account.</p><a href="login.html" id="redirect">Log in</a>
             </div>
         </form>
+        <!-- <form id="form" method="POST" action="includes/signup.inc.php" >
+        <div class="header">
+                <h2>Create Account</h2>
+            </div>
+            <p class="text">or use your email for registration:</p>
+
+        <div class="form-group">
+
+            <label for="username">username name:</label>
+            <input type="text" class="input-design" id="username" name="username">
+            <small class="small">input incorrect</small>
+
+        </div>
+        <div class="form-group">
+
+            <label for="email">email:</label>
+            <input type="text" class="input-design" id="email" name="email">
+            <small class="small">input incorrect</small>
+
+        </div>
+        <div class="form-group">
+
+            <label for="name">name name:</label>
+            <input type="text" class="input-design" id="name" name="name">
+            <small class="small">input incorrect</small>
+
+        </div>
+        <div class="form-group">
+
+            <label for="password">password:</label>
+            <input type="password" class="input-design" id="password" name="password">
+            <small class="small">input incorrect</small>
+
+        </div>
+        <div class="form-group">
+    
+            <label for="confirmPassword">confirmPassword:</label>
+            <input type="password" class="input-design" id="confirmPassword" name="confirmPassword">
+            <small class="small">input incorrect</small>
+
+        </div>
+
+        <div class="button-group">
+
+            <input type="submit" name="submit">
+        </div>
+        </form> -->
     </div>
 
-    <script src="assets/js/signup.js"></script>
 </body>
 </html>
