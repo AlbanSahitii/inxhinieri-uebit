@@ -5,7 +5,7 @@ if(isset($_POST['submit'])) {
     $email = $_POST["email"];
     $name = $_POST["name"];
     $password = $_POST["password"];
-    $confirmPassword = $_POST["confirmPassword"];
+    $confirmPassword = $_POST["password2"];
 
     include "../classes/dbh.php";
     include "../classes/signup.class.php";

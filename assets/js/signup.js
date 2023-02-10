@@ -1,17 +1,26 @@
 // UI variables
 const form = document.querySelector("#form");
-(username = document.querySelector("#username")),
+(nameinput = document.querySelector("#name")),
+  (username = document.querySelector("#username")),
   (email = document.querySelector("#email")),
   (password = document.querySelector("#password")),
-  (password2 = document.querySelector("#password2"));
+  (password2 = document.querySelector("#password2")),
+  (submit = document.querySelector("#submit"));
+
 // listen for submit
 form.addEventListener("submit", (e) => {
   // prebent form from submitting
   e.preventDefault();
 
+  // console.log(username.value);
+  // console.log(email.value);
+  // console.log(password.value);
+  // console.log(password2.value);
+
   // get input values
   const usernameValue = username.value.trim(),
     emailValue = email.value.trim(),
+    nameValue = nameinput.value,
     passwordValue = password.value.trim(),
     password2Value = password2.value.trim();
 
@@ -19,6 +28,11 @@ form.addEventListener("submit", (e) => {
     showError(username, "Username cannot be empty");
   } else {
     showSuccess(username);
+  }
+  if (nameValue === "") {
+    showError(nameinput, "name cannot be empty");
+  } else {
+    showSuccess(nameinput);
   }
 
   if (emailValue === "") {
@@ -72,3 +86,31 @@ function emailValidate(emailVal) {
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(emailVal).toLowerCase());
 }
+// getting data from html form using ajax
+$(document).ready(function () {
+  $("form").submit(function (e) {
+    e.preventDefault();
+    const name = $("#name").val();
+    const email = $("#email").val();
+    const username = $("#username").val();
+    const password = $("#password").val();
+    const password2 = $("#password2").val();
+    const submit = $("#submit").val();
+
+    $.ajax({
+      type: "POST",
+      url: "includes/signup.inc.php",
+      data: {
+        username: username,
+        email: email,
+        name: name,
+        password: password,
+        password2: password2,
+        submit: submit,
+      },
+      success: function (response) {
+        console.log("success");
+      },
+    });
+  });
+});

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/signup.css">
-</head>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script></head>
 <body>
     <div id="container">
         <form id="form" method="POST" action="includes/signup.inc.php" >
@@ -16,7 +16,7 @@
             </div>
             <p class="text">or use your email for registration:</p>
             <div class="form-group">
-                <input type="text" class="input-design" id="username" placeholder="Name" name="name">
+                <input type="text" class="input-design" id="name" placeholder="Name" name="name">
                 <small class="small">input incorrect</small>
             </div>
             <div class="form-group">
@@ -35,61 +35,16 @@
                 <input type="password" class="input-design" id="password2" placeholder="Confirm Password" name="confirmPassword">
                 <small class="small">input incorrect</small>
             </div>
+            <div id="error-msg"></div>
             <div class="button-group">
-                <input class="button" type="submit" name="submit">
+                <input class="button" type="submit" name="submit" id="submit">
             </div>
             <div class="redirect-group">
-                <p>I have an account.</p><a href="login.html" id="redirect">Log in</a>
+                <p>I have an account.</p><a href="includes/signup.inc.php" id="redirect">Log in</a>
             </div>
         </form>
-        <!-- <form id="form" method="POST" action="includes/signup.inc.php" >
-        <div class="header">
-                <h2>Create Account</h2>
-            </div>
-            <p class="text">or use your email for registration:</p>
-
-        <div class="form-group">
-
-            <label for="username">username name:</label>
-            <input type="text" class="input-design" id="username" name="username">
-            <small class="small">input incorrect</small>
-
-        </div>
-        <div class="form-group">
-
-            <label for="email">email:</label>
-            <input type="text" class="input-design" id="email" name="email">
-            <small class="small">input incorrect</small>
-
-        </div>
-        <div class="form-group">
-
-            <label for="name">name name:</label>
-            <input type="text" class="input-design" id="name" name="name">
-            <small class="small">input incorrect</small>
-
-        </div>
-        <div class="form-group">
-
-            <label for="password">password:</label>
-            <input type="password" class="input-design" id="password" name="password">
-            <small class="small">input incorrect</small>
-
-        </div>
-        <div class="form-group">
-    
-            <label for="confirmPassword">confirmPassword:</label>
-            <input type="password" class="input-design" id="confirmPassword" name="confirmPassword">
-            <small class="small">input incorrect</small>
-
-        </div>
-
-        <div class="button-group">
-
-            <input type="submit" name="submit">
-        </div>
-        </form> -->
     </div>
 
 </body>
+<script src="assets/js/signup.js"></script>
 </html>
