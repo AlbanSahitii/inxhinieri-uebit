@@ -40,7 +40,7 @@
                 <input class="button" type="submit" name="submit" id="submit">
             </div>
             <div class="redirect-group">
-                <p>I have an account.</p><a href="includes/signup.inc.php" id="redirect">Log in</a>
+                <p>I have an account.</p><a href="login.php" id="redirect">Log in</a>
             </div>
         </form>
     </div>

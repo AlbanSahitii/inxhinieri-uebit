@@ -2,13 +2,16 @@
 class SignUp extends Dbh{
     protected function setUser($userEmail, $userPassword, $username, $userFullName){
         $stmt =  $this->connect()->prepare('INSERT INTO users (user_email, user_password, username, user_fullname) VALUES (?,?,?,?);');
-
-        if(!$stmt->execute(array($userEmail, $userPassword, $username, $userFullName))){
+        $hashedPwd = password_hash($userPassword, PASSWORD_DEFAULT);
+       
+        if(!$stmt->execute(array($userEmail, $hashedPwd, $username, $userFullName))){
             $stmt = null;
-            header("location: ../sign-up.php?error=stmtfailed");
+            return false;
             exit();
         }
         $stmt = null;
+        return true;
+
     }
 
 
@@ -17,7 +20,7 @@ class SignUp extends Dbh{
 
         if(!$stmt->execute(array($username, $email))){
             $stmt = null;
-            header("location: ../sign-up.php?error=stmtfailed");
+            return false;
             exit();
         }
 
@@ -32,7 +35,7 @@ class SignUp extends Dbh{
 
         return $result;
     }
-
+    
 }
 
 ?>

@@ -15,6 +15,5 @@ if(isset($_POST['submit'])) {
     $signup = new SignUpController($username,$email,$name,$password,$confirmPassword);
     // running
     $signup->signUpUser();
-    header("location: ../sign-up.php?error=none");
 }
 ?>

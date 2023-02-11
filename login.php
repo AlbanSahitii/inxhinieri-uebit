@@ -9,10 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/signup.css" />
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script></head>
+
   </head>
   <body>
     <div id="container">
-      <form id="form">
+    <form id="form" method="POST" action="includes/login.inc.php" >
         <div class="header">
           <h2>Log in</h2>
         </div>
@@ -36,7 +38,7 @@
           <small class="small">input incorrect</small>
         </div>
         <div class="button-group">
-          <input type="submit" value="Login" class="button" />
+          <input type="submit" value="Login" class="button" id="submit"/>
         </div>
         <div class="redirect-group">
           <p>Don't have an account?</p>
@@ -45,6 +47,6 @@
       </form>
     </div>
 
-    <script src="assets/js/login.js"></script>
   </body>
+  <script src="assets/js/login.js"></script>
 </html>

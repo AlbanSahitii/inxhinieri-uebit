@@ -109,7 +109,9 @@ $(document).ready(function () {
         submit: submit,
       },
       success: function (response) {
+        // setTimeout(1000);
         console.log("success");
+        // location.href = "login.php";
       },
     });
   });

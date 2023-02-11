@@ -8,7 +8,6 @@ class Dbh {
             
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-            echo "connection succesfuly";
             return $dbh;
         } catch(PDOException $e){
             print "Error: " . $e->getMessage() . "<br>";

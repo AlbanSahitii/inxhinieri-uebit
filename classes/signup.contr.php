@@ -18,36 +18,36 @@ class SignUpController extends SignUp{
     public function signUpUser(){
         if($this->emptyInput() == false){
             // ECHO ERROR 
-            header("location: ../sign-up.php?error=emptyInput");
+            return false;
             exit();
         }
         if($this->invalidName() == false){
             // ECHO ERROR 
-            header("location: ../sign-up.php?error=invalidName");
+            return false;
             exit();
         }
         
         if($this->invalidEmail() == false){
             // ECHO ERROR 
-            header("location: ../sign-up.php?error=invalidEmail");
+            return false;
             exit();
         }
         
         if($this->invalidUsername() == false){
             // ECHO ERROR 
-            header("location: ../sign-up.php?error=invalidUsername");
+            return false;
             exit();
         }
 
         if($this->passwordMatch() == false){
             // ECHO ERROR 
-            header("location: ../sign-up.php?error=passwordDontMatch");
+            return false;
             exit();
         }
 
         if($this->userTaken() == false){
             // ECHO ERROR 
-            header("location: ../sign-up.php?error=userExists");
+            return false;
             exit();
         }
 
@@ -73,9 +73,9 @@ class SignUpController extends SignUp{
     private function invalidEmail(){
         if(preg_match('/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         ', $this->name)){
-            return false;
+            return true;
         }
-        return true; 
+        return false; 
 
     }
 
