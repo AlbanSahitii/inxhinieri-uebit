@@ -43,12 +43,11 @@ const tempApi = [
     rating: null,
     genre: "Horror",
     length: 90,
-    reasleseDate: new Date(`2023/02/${15 + 1}`).toJSON().slice(0, 10),
+    reasleseDate: new Date(`2023/02/${20 + 1}`).toJSON().slice(0, 10),
     image: "assets/image/movies/winnie-the-pooh.jpeg",
     description: "",
   },
 ];
-
 const watchlistMovement = function () {
   if (movementDivWatchlist) {
     movementDivWatchlist.innerHTML = "";
@@ -74,11 +73,13 @@ const watchlistMovement = function () {
   }
 };
 
+console.log(`no`);
 const upcomminglistMov = function () {
   if (movementDivUpcomming) {
     movementDivUpcomming.innerHTML = "";
     tempApi.forEach(function (mov, i) {
       if (mov.reasleseDate > date) {
+        console.log(`yes`);
         // mov = (object values)
         // i = index
         const html = `<ul>
