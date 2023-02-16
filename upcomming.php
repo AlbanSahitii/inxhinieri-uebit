@@ -17,6 +17,7 @@
     <div class="container">
       <?php
         include("templates/navbar.php");
+        
         ?>
       <div class="right-container">
         <h1>Upcomming("AMOUNT OF MOVIES")</h1>

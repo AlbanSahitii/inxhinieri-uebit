@@ -44,7 +44,7 @@
             </div>
         </form>
     </div>
-
+    
 </body>
 <script src="assets/js/signup.js"></script>
 </html>
