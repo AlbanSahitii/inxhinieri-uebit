@@ -11,26 +11,28 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
       rel="stylesheet"
     />
-    <script src="assets/js/watchlist.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script></head>
     <title>Contact Us</title>
   </head>
   <body>
     <div class="container">
-        <?php
+      <?php
           include("templates/navbar.php");
-        ?>
+          ?>
 
-        <div class="right-container">
-            <div class="contact-form">
-                <form>
-                    <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
-                    <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>          
-                    <textarea id="subject" name="subject" placeholder="Write something.." required></textarea>
-                    <input type="submit" value="Submit">
-                  </form>
-            </div>
-        </div>
+  <div class="right-container">
+      <div class="contact-form">
+        <form id="form" method="POST" action="includes/contact.inc.php">
+        <input id ="email"type="text" name="email" placeholder="Your name.." required>
+        <textarea id="subject" name="subject" placeholder="Write something.." required></textarea>
+        <input name="submit" type="submit" value="Submit">
+        </form>
+      </div>
     </div>
-   </div>
-  </body>
+    </div>
+  </div>
+<script src="assets/js/watchlist.js" defer></script>
+<script src="assets/js/contactus.js" defer></script>
+
+</body>
 </html>

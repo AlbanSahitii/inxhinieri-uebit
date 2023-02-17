@@ -73,7 +73,6 @@ const watchlistMovement = function () {
   }
 };
 
-console.log(`no`);
 const upcomminglistMov = function () {
   if (movementDivUpcomming) {
     movementDivUpcomming.innerHTML = "";
