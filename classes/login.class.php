@@ -53,12 +53,9 @@ class Login extends Dbh{
             session_start();
             $_SESSION["user_id"] = $user[0]['user_id'];
             $_SESSION["user_email"] = $user[0]['user_email'];
-            $_SESSION["user_password"] = $user[0]['user_password'];
             $_SESSION["username"] = $user[0]['username'];
             $_SESSION["user_fullname"] = $user[0]['user_fullname'];
-            $_SESSION["user_photo"] = $user[0]['user_photo'];
-            $_SESSION["user_role"] = $user[0]['user_role'];
-            
+            $_SESSION["user_photo"] = $user[0]['user_photo'];            
             return json_encode($user);
         }
 

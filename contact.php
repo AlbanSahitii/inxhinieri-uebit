@@ -18,7 +18,7 @@
     <div class="container">
       <?php
           include("templates/navbar.php");
-          ?>
+      ?>
 
   <div class="right-container">
       <div class="contact-form">

@@ -1,4 +1,9 @@
-<div class="left-container">
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])){
+  header("Location: ./login.php");
+}
+echo '<div class="left-container">
 
 <div class="logo">
           <a href="#"><img src="assets/image/logo.png" alt="logo" /></a>
@@ -34,6 +39,8 @@
           </div>
           <div class="profile-settings-right">
             <a href="#"><img src="assets/image/settings-icon.png" /> </a>
+            <a href="templates/logout.php" type="button" class="search-button" />Log Out</a>
           </div>
         </div>
-</div>
+</div>'
+?>

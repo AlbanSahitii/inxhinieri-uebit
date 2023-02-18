@@ -72,9 +72,9 @@ $(document).ready(function () {
       },
       success: function (data, status, settings) {
         if (data[0]["user_role"] == "admin") {
-          window.location = "index.html";
+          window.location = "index.php";
         } else if (data[0]["user_role"] == "user") {
-          window.location = "watchlist.html";
+          window.location = "watchlist.php";
         }
       },
     });

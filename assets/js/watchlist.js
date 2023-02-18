@@ -55,17 +55,18 @@ const watchlistMovement = function () {
       if (mov.reasleseDate < date) {
         // mov = (object values)
         // i = index
+        let tempButtonDiv = 0;
         const html = `<ul>
-  <li>
-    <a href="#"><img src="assets/image/eye20px.png" /> </a>
-  </li>
-  <li>
-    <img src="${mov.image}" />
-  </li>
-  <li>
-    <a href="movietemplate.html">${mov.name}</a>
-  </li>
-</ul>
+                          <li>
+                            <button class="${i}"><img src="assets/image/eye20px.png" /> </button>
+                          </li>
+                          <li>
+                            <img src="${mov.image}" />
+                          </li>
+                          <li>
+                            <a href="movietemplate.html">${mov.name}</a>
+                          </li>
+                        </ul>
 `;
         movementDivWatchlist.insertAdjacentHTML("afterbegin", html);
       }
@@ -82,16 +83,16 @@ const upcomminglistMov = function () {
         // mov = (object values)
         // i = index
         const html = `<ul>
-    <li>
-      <img src="${mov.image}" />
-    </li>
-    <li>
-      <a href="movietemplate.html">${mov.name}</a>
-    </li>
-    <li>
-    <span> Realese Date : ${mov.reasleseDate} </span>
-    </li>
-  </ul>
+                          <li>
+                            <img src="${mov.image}" />
+                          </li>
+                          <li>
+                            <a href="movietemplate.html">${mov.name}</a>
+                          </li>
+                          <li>
+                          <span> Realese Date : ${mov.reasleseDate} </span>
+                          </li>
+                        </ul>
   `;
         movementDivUpcomming.insertAdjacentHTML("afterbegin", html);
       }
