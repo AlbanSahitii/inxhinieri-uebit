@@ -97,7 +97,8 @@ h1 {
 }
 
 .watch-list,
-.upcomming-list {
+.upcomming-list,
+.explore {
   width: auto;
 }
 .upcomming-list {
@@ -106,14 +107,16 @@ h1 {
 }
 
 .watch-list > ul,
-.upcomming-list > ul {
+.upcomming-list > ul,
+.explore > ul {
   display: inline-block;
   margin: 5px;
   padding-left: 1%;
 }
 
 .watch-list > ul > li,
-.upcomming-list > ul > li {
+.upcomming-list > ul > li,
+.explore > ul > li {
   margin: 5px;
 }
 .right-container-movies {
@@ -190,23 +193,14 @@ textarea:focus {
   color: lightgray;
 }
 
-/*
-.center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 50%;
-  width: 50%;
-  background-color: #666;
-}
-.form-group > input {
-  width: 100%;
-  padding: 6px 20px;
-  margin: 8px 0;
-  border: none;
-  box-sizing: border-box;
-  border-radius: 3px;
+.load-movies {
+  position: fixed;
+  top: 1%;
+  right: 40%;
+  width: 100px;
+  height: 40px;
 }
 
-*/
+.load-movies > a {
+  margin: 6px;
+}

@@ -39,7 +39,7 @@ echo '<div class="left-container">
           </div>
           <div class="profile-settings-right">
             <a href="#"><img src="assets/image/settings-icon.png" /> </a>
-            <a href="templates/logout.php" type="button" class="search-button" />Log Out</a>
+            <a href="templates/logout.php" class="search-button" />Log Out</a>
           </div>
         </div>
 </div>'

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,21 +12,22 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
       rel="stylesheet"
     />
-    <title>Upcomming</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script></head>
+
+    <title>Watchlist</title>
   </head>
   <body>
     <div class="container">
       <?php
         include("templates/navbar.php");
-        
         ?>
       <div class="right-container">
-        <h1>Upcomming("AMOUNT OF MOVIES")</h1>
+        <h1>Explore</h1>
         <hr />
-        <div class="upcomming-list"></div>
-      </div>
-      <div class="load-movies"><a href="1"></a></div>
+        <div class="explore"></div>
+        <div class="load-movies"></div>
+        </div>
     </div>
-    <script src="assets/js/watchlist.js"></script>
+    <script src="assets/js/explore.js" ></script>
   </body>
 </html>

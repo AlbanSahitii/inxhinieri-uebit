@@ -55,7 +55,6 @@ const watchlistMovement = function () {
       if (mov.reasleseDate < date) {
         // mov = (object values)
         // i = index
-        let tempButtonDiv = 0;
         const html = `<ul>
                           <li>
                             <button class="${i}"><img src="assets/image/eye20px.png" /> </button>
