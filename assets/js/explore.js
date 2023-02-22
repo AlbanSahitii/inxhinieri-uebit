@@ -2,6 +2,43 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const exploreDiv = document.querySelector(".explore");
 const pagination = document.querySelector(".load-movies");
+const watchlistButton = document.querySelector(".insertButton");
+
+const addToWatchList = function (movieId) {
+  $(document).ready(function () {
+    $.ajax({
+      type: "POST",
+      url: "includes/exploreToWatchlist.inc.php",
+      data: {
+        movie_id: movieId,
+        watched_status: "0",
+      },
+      dataType: "JSON",
+      success: function (data, status) {
+        console.log(status);
+      },
+      error: function (jqXHR, exception) {
+        var msg = "";
+        if (jqXHR.status === 0) {
+          msg = "Not connect.\n Verify Network.";
+        } else if (jqXHR.status == 404) {
+          msg = "Requested page not found. [404]";
+        } else if (jqXHR.status == 500) {
+          msg = "Internal Server Error [500].";
+        } else if (exception === "parsererror") {
+          msg = "Requested JSON parse failed.";
+        } else if (exception === "timeout") {
+          msg = "Time out error.";
+        } else if (exception === "abort") {
+          msg = "Ajax request aborted.";
+        } else {
+          msg = "Uncaught Error.\n" + jqXHR.responseText;
+        }
+        console.log(msg);
+      },
+    });
+  });
+};
 
 const insertMovies = function (data, status, settings) {
   if (exploreDiv) {
@@ -16,11 +53,9 @@ const insertMovies = function (data, status, settings) {
     } else {
       page = Number(urlParams.get("page"));
     }
-    console.log(page);
 
     let maxNumberOfPage = page * 10;
     let minNumberOfPage = maxNumberOfPage - 10;
-    console.log(`${maxNumberOfPage} ${minNumberOfPage}`);
 
     // how many movies per page
     let resultPerPage = 10;
@@ -35,7 +70,7 @@ const insertMovies = function (data, status, settings) {
       if (data[i]) {
         const html = `<ul>
                          <li>
-                          <button class="${i}"><img src="assets/image/eye20px.png" /> </button>
+                          <button onclick="addToWatchList(${data[i]["movie_id"]})" class="insertButton"><img src="assets/image/eye20px.png" /> </button>
                          </li>
                          <li>
                           <img src="${data[i]["movie_photo"]}" />
@@ -50,7 +85,6 @@ const insertMovies = function (data, status, settings) {
     }
 
     for (let i = 1; i <= numberOfPages; i++) {
-      console.log(numberOfPages);
       const html = `<a href="explore.php?page=${i}">${i}</a>`;
       pagination.insertAdjacentHTML("beforeend", html);
     }

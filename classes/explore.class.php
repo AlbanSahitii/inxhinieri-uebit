@@ -1,22 +1,29 @@
 <?php
 class Explore extends Dbh{
 
-    function showMovies(){
-        $stmt =  $this->connect()->prepare("SELECT * FROM movie");
+    function showMovies($user_id){
 
-        if(!$stmt->execute()){
-            $stmt = null;
+        $getMovies =  $this->connect()->prepare("SELECT movie_id,movie_name,movie_photo,movie_cover,movie_description,movie_time,release_date
+        FROM movie m
+        WHERE m.movie_id NOT IN (
+          SELECT w.movie_id
+          FROM watchlist w
+          WHERE w.user_id = 38
+        );");
+
+        if(!$getMovies->execute($user_id)){
+            $getMovies = null;
             return false;
             exit();
         }
 
         
-        if($stmt->rowCount() == 0){
-            $stmt = null;
+        if($getMovies->rowCount() == 0){
+            $getMovies = null;
             return false;
             exit(); 
         }
-        $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $movies = $getMovies->fetchAll(PDO::FETCH_ASSOC);
         return json_encode($movies);
 
 
@@ -25,3 +32,5 @@ class Explore extends Dbh{
 
 }
 ?>
+
+

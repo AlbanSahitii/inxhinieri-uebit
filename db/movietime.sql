@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 20, 2023 at 11:38 PM
+-- Generation Time: Feb 22, 2023 at 01:28 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `movietime`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contactus`
+--
+
+CREATE TABLE `contactus` (
+  `contactus_id` int(10) UNSIGNED NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `message` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `contactus`
+--
+
+INSERT INTO `contactus` (`contactus_id`, `email`, `message`) VALUES
+(1, 'albansahiti2002@gmail.com', 'asdasdasa');
 
 -- --------------------------------------------------------
 
@@ -69,9 +88,73 @@ INSERT INTO `movie` (`movie_id`, `movie_name`, `movie_photo`, `movie_cover`, `mo
 (28, 'Avengers: End Game25', 'assets/image/movies/avengers.jpeg', 'assets/image/movies/avengers.jpeg', 'Adrift in space with no food or water, Tony Stark ...', '03:00:00', '2019-03-26'),
 (29, 'Avengers: End Game26', 'assets/image/movies/avengers.jpeg', 'assets/image/movies/avengers.jpeg', 'Adrift in space with no food or water, Tony Stark ...', '03:00:00', '2019-03-26');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rating`
+--
+
+CREATE TABLE `rating` (
+  `rating_id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED DEFAULT NULL,
+  `movie_id` int(10) UNSIGNED DEFAULT NULL,
+  `rating` enum('0','1','2','3','4','5','6','7','8','9','10') NOT NULL,
+  `rating_comment` varchar(256) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `user_email` varchar(256) NOT NULL,
+  `user_password` varchar(256) NOT NULL,
+  `username` varchar(256) NOT NULL,
+  `user_fullname` varchar(256) NOT NULL,
+  `user_photo` text DEFAULT NULL,
+  `user_role` varchar(10) DEFAULT 'user'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `user_email`, `user_password`, `username`, `user_fullname`, `user_photo`, `user_role`) VALUES
+(37, 'admin@admin.com', '$2y$10$FngKOAoaujrQ9kTY4ezHT.inqTiXtI41qgghVa4.rR1l0l2xwyuFK', 'admin', 'admin', NULL, 'admin'),
+(38, 'user@user.com', '$2y$10$nDFIZmQa93h8PEgmoWanqeco2erC8x8KWIWPBezBUuTVqd7/PEBRu', 'user', 'user', NULL, 'user'),
+(39, 'test1@gmail.com', '$2y$10$ldnFvFx/LcSOcxNF5VWvU.lAGM79fIsFxkYKpcC.0rPibTZGeTs8a', 'test', 'test', NULL, 'user'),
+(40, 'test3@gmail.com', '$2y$10$jK3ozW6LB2wspwbF2RhtuOPjdmKl/xjaeu4rJh9Si0/I686U9LvLu', 'test3', 'test', NULL, 'user'),
+(41, 'test4@gmail..com', '$2y$10$s86Owlu5MxnpHqkeXKQq2umEQp8W.CVLrFOgCRIKaP/SwajC6gSOW', 'test4', 'test', NULL, 'user'),
+(42, 'test1@test.comsss', '$2y$10$gwlNVsp7VT1HPgfCZgpvWefAk1t/8dARO55GyMkJ3PpZH7YdPB8MC', 'testttt', 'testttt', NULL, 'user'),
+(43, 'albansahiti2002@gmail.com', '$2y$10$MZFZ7pzdGj2RfohMZRZhmO1S01rxnZ1R2fY06hr9XSqJ1529MBfQe', 'aslban', 'albanss', NULL, 'user'),
+(44, 'albansahiti2002@gmail.comss', '$2y$10$q/10T39nTXbYIIXGKyQe2eiWgSNop.hFnei8o7gWwNFIP0cvIujJ6', 'sadasd', 'albanas', NULL, 'user'),
+(45, 'beqa@gmail.com', '$2y$10$NWP3V7OllGyNET7WYSF3o.xFl0HsbN8HgigtafDZ8uXt9xz3Jdx8i', 'beqa', 'beqa', NULL, 'user');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `watchlist`
+--
+
+CREATE TABLE `watchlist` (
+  `watchlist_id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED DEFAULT NULL,
+  `movie_id` int(10) UNSIGNED DEFAULT NULL,
+  `watched_status` enum('0','1') DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `contactus`
+--
+ALTER TABLE `contactus`
+  ADD PRIMARY KEY (`contactus_id`);
 
 --
 -- Indexes for table `movie`
@@ -80,14 +163,80 @@ ALTER TABLE `movie`
   ADD PRIMARY KEY (`movie_id`);
 
 --
+-- Indexes for table `rating`
+--
+ALTER TABLE `rating`
+  ADD PRIMARY KEY (`rating_id`),
+  ADD KEY `fk_rating_users` (`user_id`),
+  ADD KEY `fk_rating_movie` (`movie_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `user_email` (`user_email`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
+-- Indexes for table `watchlist`
+--
+ALTER TABLE `watchlist`
+  ADD PRIMARY KEY (`watchlist_id`),
+  ADD KEY `fk_watchlist_users` (`user_id`),
+  ADD KEY `fk_watchlist_movie` (`movie_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `contactus`
+--
+ALTER TABLE `contactus`
+  MODIFY `contactus_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
   MODIFY `movie_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT for table `rating`
+--
+ALTER TABLE `rating`
+  MODIFY `rating_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
+--
+-- AUTO_INCREMENT for table `watchlist`
+--
+ALTER TABLE `watchlist`
+  MODIFY `watchlist_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `rating`
+--
+ALTER TABLE `rating`
+  ADD CONSTRAINT `fk_rating_movie` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`movie_id`),
+  ADD CONSTRAINT `fk_rating_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+
+--
+-- Constraints for table `watchlist`
+--
+ALTER TABLE `watchlist`
+  ADD CONSTRAINT `fk_watchlist_movie` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`movie_id`),
+  ADD CONSTRAINT `fk_watchlist_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
