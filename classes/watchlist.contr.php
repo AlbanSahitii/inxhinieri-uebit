@@ -1,5 +1,5 @@
 <?php
-class ExploreContr extends Explore {
+class WatchlistContr extends WatchlistClass {
     private $user_id;
     
     public function __construct($user_id){
@@ -12,4 +12,6 @@ class ExploreContr extends Explore {
     }
  
 }
+
+
 ?>

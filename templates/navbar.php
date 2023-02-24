@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION['user_id'])){
   header("Location: ./login.php");
 }
+
 echo '<div class="left-container">
 
 <div class="logo">
@@ -34,7 +35,7 @@ echo '<div class="left-container">
         <div class="profile-settings">
           <div class="profile-settings-left">
             <a href="#"
-              ><img src="assets/image/profile20px.png" /><span>"NAME"</span>
+              ><img src="assets/image/profile20px.png" /><span>'. $_SESSION['username'] ,'</span>
             </a>
           </div>
           <div class="profile-settings-right">

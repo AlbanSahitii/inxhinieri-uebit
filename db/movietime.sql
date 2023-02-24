@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 22, 2023 at 01:28 PM
+-- Generation Time: Feb 24, 2023 at 02:38 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -38,7 +38,8 @@ CREATE TABLE `contactus` (
 --
 
 INSERT INTO `contactus` (`contactus_id`, `email`, `message`) VALUES
-(1, 'albansahiti2002@gmail.com', 'asdasdasa');
+(1, 'albansahiti2002@gmail.com', 'asdasdasa'),
+(2, 'yes@gmail.com', 'hello');
 
 -- --------------------------------------------------------
 
@@ -86,7 +87,8 @@ INSERT INTO `movie` (`movie_id`, `movie_name`, `movie_photo`, `movie_cover`, `mo
 (26, 'Avengers: End Game23', 'assets/image/movies/avengers.jpeg', 'assets/image/movies/avengers.jpeg', 'Adrift in space with no food or water, Tony Stark ...', '03:00:00', '2019-03-26'),
 (27, 'Avengers: End Game24', 'assets/image/movies/avengers.jpeg', 'assets/image/movies/avengers.jpeg', 'Adrift in space with no food or water, Tony Stark ...', '03:00:00', '2019-03-26'),
 (28, 'Avengers: End Game25', 'assets/image/movies/avengers.jpeg', 'assets/image/movies/avengers.jpeg', 'Adrift in space with no food or water, Tony Stark ...', '03:00:00', '2019-03-26'),
-(29, 'Avengers: End Game26', 'assets/image/movies/avengers.jpeg', 'assets/image/movies/avengers.jpeg', 'Adrift in space with no food or water, Tony Stark ...', '03:00:00', '2019-03-26');
+(29, 'Avengers: End Game26', 'assets/image/movies/avengers.jpeg', 'assets/image/movies/avengers.jpeg', 'Adrift in space with no food or water, Tony Stark ...', '03:00:00', '2019-03-26'),
+(30, 'Winnie-the-Pooh: Blood and Honey', 'assets/image/movies/winnie-the-pooh.jpeg', 'assets/image/movies/winnie-the-pooh.jpeg', 'TEST', '01:30:00', '2023-07-21');
 
 -- --------------------------------------------------------
 
@@ -131,7 +133,10 @@ INSERT INTO `users` (`user_id`, `user_email`, `user_password`, `username`, `user
 (42, 'test1@test.comsss', '$2y$10$gwlNVsp7VT1HPgfCZgpvWefAk1t/8dARO55GyMkJ3PpZH7YdPB8MC', 'testttt', 'testttt', NULL, 'user'),
 (43, 'albansahiti2002@gmail.com', '$2y$10$MZFZ7pzdGj2RfohMZRZhmO1S01rxnZ1R2fY06hr9XSqJ1529MBfQe', 'aslban', 'albanss', NULL, 'user'),
 (44, 'albansahiti2002@gmail.comss', '$2y$10$q/10T39nTXbYIIXGKyQe2eiWgSNop.hFnei8o7gWwNFIP0cvIujJ6', 'sadasd', 'albanas', NULL, 'user'),
-(45, 'beqa@gmail.com', '$2y$10$NWP3V7OllGyNET7WYSF3o.xFl0HsbN8HgigtafDZ8uXt9xz3Jdx8i', 'beqa', 'beqa', NULL, 'user');
+(45, 'beqa@gmail.com', '$2y$10$NWP3V7OllGyNET7WYSF3o.xFl0HsbN8HgigtafDZ8uXt9xz3Jdx8i', 'beqa', 'beqa', NULL, 'user'),
+(46, 'hello@gmail.com', '$2y$10$QSL.vjJnJMMAXU3ZqzcPX.HeKB5FYAeYGHGt6j6c9/ORzJlg3Ll0u', 'hello', 'hello', NULL, 'user'),
+(47, 'alban@alban.com', '$2y$10$cNNsfeaBErKit8nCukrMwOJMIG/xX2QrctgCoQSsau2S39zfW407m', 'alban', 'alban', NULL, 'user'),
+(48, 'AlbanSahiti@gmail.com', '$2y$10$HlsHWAIKGL4bpsPb8XzLS.Sdc1oPzJT7GTAGNnn6vE3ueaBsjpjmC', 'albanii', 'Alban', NULL, 'user');
 
 -- --------------------------------------------------------
 
@@ -145,6 +150,29 @@ CREATE TABLE `watchlist` (
   `movie_id` int(10) UNSIGNED DEFAULT NULL,
   `watched_status` enum('0','1') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `watchlist`
+--
+
+INSERT INTO `watchlist` (`watchlist_id`, `user_id`, `movie_id`, `watched_status`) VALUES
+(79, 38, 13, '0'),
+(80, 38, 14, '0'),
+(81, 38, 15, '0'),
+(82, 48, 13, '0'),
+(83, 48, 14, '0'),
+(84, 48, 15, '0'),
+(85, 48, 16, '0'),
+(86, 48, 17, '0'),
+(87, 48, 18, '0'),
+(88, 48, 19, '0'),
+(89, 48, 20, '0'),
+(90, 48, 21, '0'),
+(91, 48, 22, '0'),
+(92, 48, 23, '0'),
+(93, 48, 24, '0'),
+(94, 48, 25, '0'),
+(95, 48, 26, '0');
 
 --
 -- Indexes for dumped tables
@@ -194,13 +222,13 @@ ALTER TABLE `watchlist`
 -- AUTO_INCREMENT for table `contactus`
 --
 ALTER TABLE `contactus`
-  MODIFY `contactus_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `contactus_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `movie_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `movie_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `rating`
@@ -212,13 +240,13 @@ ALTER TABLE `rating`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `watchlist`
 --
 ALTER TABLE `watchlist`
-  MODIFY `watchlist_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `watchlist_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- Constraints for dumped tables

@@ -81,7 +81,6 @@ $(document).ready(function () {
   $.ajax({
     type: "POST",
     url: "includes/explore.inc.php",
-
     success: insertMovies,
     error: function (err) {
       console.log(`${err}`);
