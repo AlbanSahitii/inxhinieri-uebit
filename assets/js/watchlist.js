@@ -1,6 +1,6 @@
 "use strict";
 
-const movementDivWatchlist = document?.querySelector(".watch-list");
+const movementDivWatchlist = document.querySelector(".watch-list");
 const insertMovies = function (data, status, settings) {
   if (movementDivWatchlist) {
     movementDivWatchlist.innerHTML = "";
@@ -9,7 +9,7 @@ const insertMovies = function (data, status, settings) {
       // i = index
       const html = `<ul>
                      <li>
-                      <button onclick="addToWatchList(${data[i]["movie_id"]})" class="insertButton"><img src="assets/image/eye20px.png" /> </button>
+                      <button onclick="addToProfile(${data[i]["movie_id"]})" class="insertButton"><img src="assets/image/eye20px.png" /> </button>
                       </li>
                       <li>
                         <img src="${data[i]["movie_photo"]}" />
@@ -33,3 +33,24 @@ $(document).ready(function () {
     },
   });
 });
+
+const addToProfile = function (movieId) {
+  $(document).ready(function () {
+    $.ajax({
+      type: "POST",
+      url: "includes/watchlistToProfile.inc.php",
+      data: {
+        movie_id: movieId,
+        watched_status: "1",
+      },
+      dataType: "JSON",
+      success: function (data, status) {
+        console.log(data);
+      },
+      error: function (err) {
+        console.log(err.Message);
+      },
+    });
+  });
+  window.location.reload();
+};
