@@ -4,54 +4,97 @@ require_once('../classes/crudMovie.php');
 
 if(isset($_POST['submit'])){
 
+
+$targetDir = "../../uploads/";
+$imageName = basename($_FILES["movie_photo"]["name"]);
+$targetFilePath = $targetDir . $imageName;
+$fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
+
+if (isset($_POST["submit"]) && !empty($_FILES["movie_photo"]["name"])) {
+    echo "phase 1";
+    // Allow certain file formats
+    $allowTypes = array('jpg', 'png', 'jpeg', 'gif', 'pdf','jfif');
+//    $theCourseId = $_POST['theCourseId'];
+    if (in_array($fileType, $allowTypes)) {
+        echo "phase 2";
+        // Upload file to server
+        if (move_uploaded_file($_FILES["movie_photo"]["tmp_name"], $targetFilePath)) {
+
+            // Insert image file name into database
+            echo "hajde perhajr";die;
+            $insert = $conn->query("INSERT INTO coursesimage (theCourseId, imageName) VALUES ('" . $theCourseId . "', '" . $imageName . "')");
+            if ($insert) {
+                $_SESSION['status'] = "The file " . $imageName . " has been uploaded successfully.";
+//                header('Location:../index.php');
+            } else {
+                $_SESSION['status'] = "File upload failed, please try again.";
+//                header('Location:../index.php');
+            }
+        } else {
+            $_SESSION['status'] = "Sorry, there was an error uploading your file.";
+//            header('Location:../index.php');
+
+        }
+    } else {
+        $_SESSION['status'] = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
+//        header('Location:../index.php');
+    }
+} else {
+    $_SESSION['status'] = 'Please select a file to upload.';
+    echo  "huh";
+//    header('Location:../index.php');
+}
+
+
+
+////        $name = $_REQUEST['movie_photo'];
 //
-//    $target_dir = "uploads/";
-//    $target_file = $target_dir . basename($_FILES["movie_photo"]["name"]);
-//    $uploadOk = 1;
-//    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+//        $image_file = $_FILES['movie_photo']['name'];
+//        $type = $_FILES['movie_photo']['type'];
+//        $size = $_FILES['movie_photo']['size'];
+//        $temp = $_FILES['movie_photo']['tmp_name'];
 //
-//// Check if image file is a actual image or fake image
-//    if(isset($_POST["submit"])) {
-//        $check = getimagesize($_FILES["movie_photo"]["tmp_name"]);
-//        if($check !== false) {
-//            echo "File is an image - " . $check["mime"] . ".";
-//            $uploadOk = 1;
-//        } else {
-//            echo "File is not an image.";
-//            $uploadOk = 0;
+//        $path="uploads/".$image_file;
+//
+////        if (empty($name)){
+////            $errorMsg = "Please enter name";
+////            echo "name";
+////        }
+//        if(empty($image_file)){
+//            $errorMsg="Please Select Image";
+//            echo "select";
 //        }
-//    }
-//
-//// Check if file already exists
-//    if (file_exists($target_file)) {
-//        echo "Sorry, file already exists.";
-//        $uploadOk = 0;
-//    }
-//
-//// Check file size
-//    if ($_FILES["movie_photo"]["size"] > 500000) {
-//        echo "Sorry, your file is too large.";
-//        $uploadOk = 0;
-//    }
-//
-//// Allow certain file formats
-//    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-//        && $imageFileType != "gif" ) {
-//        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-//        $uploadOk = 0;
-//    }
-//
-//// Check if $uploadOk is set to 0 by an error
-//    if ($uploadOk == 0) {
-//        echo "Sorry, your file was not uploaded.";
-//// if everything is ok, try to upload file
-//    } else {
-//        if (move_uploaded_file($_FILES["movie_photo"]["tmp_name"], $target_file)) {
-//            echo "The file ". htmlspecialchars( basename( $_FILES["movie_photo"]["name"])). " has been uploaded.";
-//        } else {
-//            echo "Sorry, there was an error uploading your file.";
+//        else if($type=="image/jpg" || $type=="image/jpeg" || $type=="image/png" || $type=="image/gif"){
+//            if (!file_exists($path)){
+//                if ($size < 5000000){
+//                    echo "jello";
+//                    move_uploaded_file($temp, "uploads/" . $image_file);die;
+//                }
+//                else{
+//                    $errorMsg = "your File to large please upload 5MB size";
+//                }
+//            }
+//            else{
+//                $errorMsg = "File already exists... Check upload folder";
+//            }
 //        }
-//    }
+//        else{
+//            $errorMsg = "Upload Jpg, jpeg, png & gif file formate... check file extension";
+//            echo "else";
+//        }
+//
+//        if (!isset($errorMsg)){
+//            echo "baba";
+//            $insert_stmt=$db-> prepare('INSERT INTO tbl_file(name,image) VALUES (:fname, :fimage)');
+//            $insert_stmt->bindParam(':fname', $name);
+//            $insert_stmt->bindParam(':fimage', $image_file);
+//
+//            if ($insert_stmt->execute()){
+//                $insertMsg="File upload successfully......";
+//                header("refresh:3;index.php");
+//            }
+//        }
+
 
 //
 //    $targetDirImage = "../../uploads/";
@@ -60,21 +103,24 @@ if(isset($_POST['submit'])){
 //    $targetFilePath = $targetDirImage . $movie_photo;
 //
 //    move_uploaded_file($_FILES["movie_photo"]["tmp_name"], $targetFilePath);
+//
+//    $movie = new crudMovie();
+//    $movie->setMovie_name($_POST['movie_name']);
+//    $movie->setMovie_photo($movie_photo);
+//    $movie->setMovie_description($_POST['movie_description']);
+//    $movie->setMovie_time($_POST['movie_time']);
+//    $movie->setRelease_date($_POST['release_date']);
+//    $movie->insertMovieData();
+//
+//    echo "<script>
+//    alert('dhenat jane Regjistruar me sukses');
+//    document.location='../movie.php'</script>"; }
 
-    $movie = new crudMovie();
-    $movie->setMovie_name($_POST['movie_name']);
-    $movie->setMovie_description($_POST['movie_description']);
-    $movie->setMovie_time($_POST['movie_time']);
-    $movie->setRelease_date($_POST['release_date']);
-    $movie->insertMovieData();
 
-    echo "<script>
-    alert('dhenat jane Regjistruar me sukses');
-    document.location='../movie.php'</script>";
-
-}
+/////////////////////
 
 
+    }
 
 
 
