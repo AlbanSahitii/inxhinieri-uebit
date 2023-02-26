@@ -20,7 +20,7 @@ include 'includes/navbar.php';
 
 ?>
     <div class="main">
-        <form method="POST" action="includes/users.inc.php">
+        <form method="POST" action="">
 
             <label for="name">Full name:</label>
             <input type="text" id="name" name="name">

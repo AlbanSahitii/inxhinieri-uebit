@@ -1,12 +1,18 @@
 <?php
 
     include 'includes/header.php';
+
     include 'includes/navbar.php';
+
+    require_once 'classes/crudMovie.php';
+
+    $movie = new crudMovie();
+    $allMovie=$movie->showMovieData();
 
     ?>
 
     <div class="main">
-        <form method="POST" action="includes/movie.inc.php">
+        <form method="POST" action="includes/addMovie.php">
             <label for="movie_name">Movie Name:</label>
             <input type="text" id="movie_name" name="movie_name" required>
 
@@ -24,44 +30,36 @@
         <table>
             <thead>
             <tr>
-                <th>Id</th>
-                <th>Full name</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Actions</th>
+                <th>Movie Id</th>
+                <th>Movie Name</th>
+                <th>Movie Length</th>
+                <th>Release Date</th>
+                <th>Description</th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
+            <?php
+            foreach ($allMovie as $key=>$row) {
+            ?>
             <tr>
-                <td>1</td>
-                <td>Zgjim Grajqevci</td>
-                <td>zgjimgrajqevci</td>
-                <td>grajqevccizgjim03@gmail.com</td>
+                <td><?= $row['movie_id']; ?></td>
+                <td><?= $row['movie_name']; ?></td>
+                <td><?= $row['movie_time']; ?></td>
+                <td><?= $row['release_date']; ?></td>
+                <td><?= $row['movie_description']; ?></td>
                 <td>
-                    <button id="edit_btn"><a href="">Edit</a></button>
-                    <button id="delete_btn"><a href="">Delete</a></button>
+                    <a href="includes/editMovieData.php?movie_id=<?= $row['movie_id']; ?>">
+                        <button id="edit_btn">Edit</button>
+                    </a>
+                    <a href="includes/deleteMovieData.php?movie_id=<?= $row['movie_id']; ?>">
+                        <button id="delete_btn">Delete</button>
+                    </a>
                 </td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>Alban Sahiti</td>
-                <td>albanisahiti</td>
-                <td>alban sahilit@gmail.com</td>
-                <td>
-                    <button id="edit_btn"><a href="">Edit</a></button>
-                    <button id="delete_btn"><a href="">Delete</a></button>
-                </td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Tanjiro Kamado</td>
-                <td>kamaddooo</td>
-                <td>tanjirokamado@gmail.com</td>
-                <td>
-                    <button id="edit_btn"><a href="">Edit</a></button>
-                    <button id="delete_btn"><a href="">Delete</a></button>
-                </td>
-            </tr>
+                 <?php
+            }
+            ?>
             </tbody>
         </table>
     </div>
