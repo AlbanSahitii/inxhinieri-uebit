@@ -75,7 +75,7 @@ Class CrudUser extends dbCon {
     //Insert Data
     public function insertUserData(){
         try{
-            $sql = "INSERT INTO users(user_email,user_password,username,user_fullname,user_role) VALUES (?,?,?,?)";
+            $sql = "INSERT INTO users(user_email,user_password,username,user_fullname,user_role) VALUES (?,?,?,?,?)";
             $stmt = $this->dbConn->prepare($sql);
             $stmt->execute([$this->user_email, $this->user_password, $this->username, $this->user_fullname, $this->user_role]);
             echo "<script>
@@ -120,7 +120,7 @@ Class CrudUser extends dbCon {
         try{
             $sqlStmt = "UPDATE users SET user_email=?, user_password=?, username=?, user_fullname=?, user_role=? WHERE user_id=?";
             $stmt = $this->dbConn->prepare($sqlStmt);
-            $stmt->execute([$this->user_email, $this->user_password, $this->username, $this->user_fullname, $this->user_id, $this->user_role]);
+            $stmt->execute([$this->user_email, $this->user_password, $this->username, $this->user_fullname, $this->user_role, $this->user_id]);
             echo "<script>
             alert('The data was edited successfully!'); document.location='../user.php';</script>";
         }

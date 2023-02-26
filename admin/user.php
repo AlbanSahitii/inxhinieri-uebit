@@ -14,7 +14,7 @@ $allUser=$user->showUserData();
 
             <label for="role">Role:</label>
             <select id="role" name="user_role" required>
-                <option value="User">User</option>
+                <option value="user">User</option>
                 <option value="admin">Admin</option>
             </select>
 

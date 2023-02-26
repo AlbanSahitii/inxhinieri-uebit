@@ -4,7 +4,7 @@ require_once('../classes/crudUser.php');
 
 $userData = new crudUser();
 $userId = $_GET['user_id'];
-$userData->setuser_id($userId);
+$userData->setUser_id($userId);
 
 if(isset($_POST['edit'])){
     $pwd = $_POST['user_password'];
@@ -38,8 +38,8 @@ $row = $editUserData[0];
     <label for="role">Role:</label>
     <select id="role" name="user_role">
         <option value="<?= $row['user_role']; ?>"><?= $row['user_role']; ?></option>
-        <option value="User">User</option>
-        <option value="admin">Admin</option>
+        <option value="User">user</option>
+        <option value="admin">admin</option>
     </select>
 
     <label for="name">Full name:</label>

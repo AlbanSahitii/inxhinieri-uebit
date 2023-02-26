@@ -7,8 +7,6 @@ if(isset($_POST['submit'])){
     $pwd = $_POST['user_password'];
     $user_password = password_hash($pwd, PASSWORD_DEFAULT);
 
-//    var_dump($_POST);die;
-
     $user = new crudUser();
     $user->setUser_email($_POST['user_email']);
     $user->setUser_password($user_password);
