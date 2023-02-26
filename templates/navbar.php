@@ -9,10 +9,6 @@ echo '<div class="left-container">
 <div class="logo">
           <a href="#"><img src="assets/image/logo.png" alt="logo" /></a>
         </div>
-        <form class="search">
-          <input type="text" placeholder="Type a movie" class="search-input" />
-          <input type="button" value="Search" class="search-button" />
-        </form>
         <hr />
         <section class="menu">
           <ul>
