@@ -44,9 +44,7 @@ const insertMovies = function (data, status, settings) {
 
     // how many movies per page
     let resultPerPage = 10;
-
     let numberOfResults = data.length;
-
     let numberOfPages = Math.ceil(numberOfResults / resultPerPage);
 
     // mov = (object values)
