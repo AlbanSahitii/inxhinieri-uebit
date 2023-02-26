@@ -3,83 +3,74 @@
 include 'includes/header.php';
 include 'includes/navbar.php';
 
-//error_reporting(E_ALL);
-//ini_set('display_errors', 1);
-//
-//include 'classes/dbh.php';
-//include 'classes/users.class.php';
-//include 'classes/usersview.class.php';
-//include 'classes/userscontr.class.php';
-//
-//$usersObj = new UsersView();
-//$usersObj->showUser("alban");
+require_once 'classes/crudUser.php';
 
-//$usersObj2 = new UsersContr();
-//$usersObj2->createUser("zgjim@gmail.com", "zgjim1234", "nomi", "Zgjim Grajqevci", "admin");
-
+$user = new crudUser();
+$allUser=$user->showUserData();
 
 ?>
     <div class="main">
-        <form method="POST" action="">
+        <form method="POST" action="includes/addUser.php">
+
+            <label for="role">Role:</label>
+            <select id="role" name="user_role" required>
+                <option value="User">User</option>
+                <option value="admin">Admin</option>
+            </select>
 
             <label for="name">Full name:</label>
-            <input type="text" id="name" name="name">
+            <input type="text" id="name" name="user_fullname" required>
 
             <label for="email">Email:</label>
-            <input type="text" id="email" name="email">
+            <input type="text" id="email" name="user_email" required>
 
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username">
+            <input type="text" id="username" name="username" required>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password">
-
-            <label for="password2">Confirm password:</label>
-            <input type="password" id="password2" name="confirmPassword">
+            <input type="password" id="password" name="user_password" required>
 
             <input type="submit" name="submit" value="Submit">
         </form>
         <table>
             <thead>
             <tr>
-                <th>Id</th>
+                <th>User Id</th>
                 <th>Full name</th>
                 <th>Username</th>
                 <th>Email</th>
+                <th>Role</th>
                 <th>Actions</th>
             </tr>
             </thead>
             <tbody>
+            <?php
+
+            foreach ($allUser as $key=>$row) {
+
+            ?>
+
             <tr>
-                <td>1</td>
-                <td>Zgjim Grajqevci</td>
-                <td>zgjimgrajqevci</td>
-                <td>grajqevccizgjim03@gmail.com</td>
+                <td><?= $row['user_id']; ?></td>
+                <td><?= $row['user_fullname']; ?></td>
+                <td><?= $row['username']; ?></td>
+                <td><?= $row['user_email']; ?></td>
+                <td><?= $row['user_role']; ?></td>
                 <td>
-                    <button id="edit_btn"><a href="">Edit</a></button>
-                    <button id="delete_btn"><a href="">Delete</a></button>
+                    <a href="includes/editUserData.php?user_id=<?= $row['user_id']; ?>">
+                        <button id="edit_btn">Edit</button>
+                    </a>
+                    <a href="includes/deleteUserData.php?user_id=<?= $row['user_id']; ?>">
+                        <button id="delete_btn">Delete</button>
+                    </a>
                 </td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>Alban Sahiti</td>
-                <td>albanisahiti</td>
-                <td>alban sahilit@gmail.com</td>
-                <td>
-                    <button id="edit_btn"><a href="">Edit</a></button>
-                    <button id="delete_btn"><a href="">Delete</a></button>
-                </td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Tanjiro Kamado</td>
-                <td>kamaddooo</td>
-                <td>tanjirokamado@gmail.com</td>
-                <td>
-                    <button id="edit_btn"><a href="">Edit</a></button>
-                    <button id="delete_btn"><a href="">Delete</a></button>
-                </td>
-            </tr>
+
+            <?php
+
+                }
+
+                ?>
             </tbody>
         </table>
 

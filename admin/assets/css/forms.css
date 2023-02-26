@@ -24,7 +24,7 @@ label {
     font-weight: bold;
 }
 
-input[type="text"], textarea, input[type="password"], input[type="time"], input[type="date"]{
+input[type="text"], textarea, input[type="password"], input[type="time"], input[type="date"], select{
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 5px;

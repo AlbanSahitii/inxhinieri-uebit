@@ -12,7 +12,8 @@
     ?>
 
     <div class="main">
-        <form method="POST" action="includes/addMovie.php">
+        <form action="includes/addMovie.php" method="POST" enctype="multipart/form-data">
+
             <label for="movie_name">Movie Name:</label>
             <input type="text" id="movie_name" name="movie_name" required>
 
@@ -24,6 +25,9 @@
 
             <label for="release_date">Release Date</label>
             <input type="date" id="release_date" name="release_date"> <br>
+
+            <label for="movie_photo">Movie photo:</label>
+            <input type="file" id="movie_photo" name="movie_photo" accept="image/*">
 
             <input type="submit" name="submit" value="Submit">
         </form>

@@ -6,14 +6,16 @@ Class CrudMovie extends dbCon {
 
     private $movie_id;
     private $movie_name;
+    private $movie_photo;
     private $movie_description;
     private $movie_time;
     private $release_date;
     private $dbConn;
 
-    public function __construct($movie_id='',$movie_name='',$movie_description='',$movie_time='',$release_date='') {
+    public function __construct($movie_id='',$movie_name='',$movie_photo='',$movie_description='',$movie_time='',$release_date='') {
         $this->movie_id = $movie_id;
         $this->movie_name = $movie_name;
+        $this->movie_photo = $movie_photo;
         $this->movie_description = $movie_description;
         $this->movie_time = $movie_time;
         $this->release_date = $release_date;
@@ -35,6 +37,14 @@ Class CrudMovie extends dbCon {
 
     public function getMovie_name(){
         return $this->movie_name;
+    }
+
+    public function setMovie_photo($movie_photo){
+        $this->movie_photo = $movie_photo;
+    }
+
+    public function getMovie_photo(){
+        return $this->movie_photo;
     }
 
     public function setMovie_description($movie_description){
@@ -64,9 +74,9 @@ Class CrudMovie extends dbCon {
     //Insert Data
     public function insertMovieData(){
         try{
-            $sql = "INSERT INTO movie(movie_name,movie_description,movie_time,release_date) VALUES (?,?,?,?)";
+            $sql = "INSERT INTO movie(movie_name,movie_photo,movie_description,movie_time,release_date) VALUES (?,?,?,?,?)";
             $stmt = $this->dbConn->prepare($sql);
-            $stmt->execute([$this->movie_name, $this->movie_description, $this->movie_time, $this->release_date]);
+            $stmt->execute([$this->movie_name, $this->movie_photo, $this->movie_description, $this->movie_time, $this->release_date]);
             echo "<script>
             alert('The data was send successfully!'); document.location='../movie.php';
             </script>";
