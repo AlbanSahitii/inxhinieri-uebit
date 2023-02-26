@@ -14,9 +14,7 @@ const addToWatchList = function (movieId) {
         watched_status: "0",
       },
       dataType: "JSON",
-      success: function (data, status) {
-        console.log(status);
-      },
+      success: function (data, status) {},
       error: function (err) {
         console.log(err);
       },
@@ -59,7 +57,7 @@ const insertMovies = function (data, status, settings) {
                           <img src="${data[i]["movie_photo"]}" />
                          </li>
                          <li>
-                          <a href="movietemplate.html">${data[i]["movie_name"]}</a>
+                          <a href="movie-page.php?movie_id=${data[i]["movie_id"]}">${data[i]["movie_name"]}</a>
                          </li>
                          </ul>
         `;

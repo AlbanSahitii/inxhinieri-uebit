@@ -15,7 +15,7 @@ const insertMovies = function (data, status, settings) {
                         <img src="${data[i]["movie_photo"]}" />
                       </li>
                       <li>
-                       <a href="movietemplate.html">${data[i]["movie_name"]}</a>
+                       <a href="movie-page.php?movie_id=${data[i]["movie_id"]}">${data[i]["movie_name"]}</a>
                       </li>
                     </ul>`;
       movementDivWatchlist.insertAdjacentHTML("afterbegin", html);

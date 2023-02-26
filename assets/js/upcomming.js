@@ -13,7 +13,7 @@ const insertMovies = function (data, status, settings) {
                         <img src="${data[i]["movie_photo"]}" />
                       </li>
                       <li>
-                        <a href="movietemplate.html">${data[i]["movie_name"]}</a>
+                        <a href="movie-page.php">${data[i]["movie_name"]}</a>
                       </li>
                       <li>
                         <span> Realese Date : ${data[i]["release_date"]} </span>

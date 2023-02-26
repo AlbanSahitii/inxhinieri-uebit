@@ -18,7 +18,7 @@
                 <img src="assets/image/profile_picture_luffy.jpg" alt="">
             </div>
             <div id="profile_page_up_name">
-                <p>Nomi</p>
+                <p><?= $_SESSION['username'] ?></p>
             </div>
         </div>
         <div>

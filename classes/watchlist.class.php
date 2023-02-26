@@ -3,10 +3,10 @@ class WatchlistClass extends Dbh{
 
     function showMovies($user_id){
 
-        $getMovies =  $this->connect()->prepare("SELECT * FROM movie m JOIN watchlist w ON m.movie_id = w.movie_id WHERE w.user_id = ?;
+        $getMovies =  $this->connect()->prepare("SELECT * FROM movie m JOIN watchlist w ON m.movie_id = w.movie_id WHERE w.user_id = ? AND w.watched_status = ?;
         );");
 
-        if(!$getMovies->execute(array($user_id))){
+        if(!$getMovies->execute(array($user_id, 0))){
             $getMovies = null;
             return false;
             exit();

@@ -34,7 +34,7 @@ echo '<div class="left-container">
 
         <div class="profile-settings">
           <div class="profile-settings-left">
-            <a href="#"
+            <a href="profile.php"
               ><img src="assets/image/profile20px.png" /><span>'. $_SESSION['username'] ,'</span>
             </a>
           </div>
