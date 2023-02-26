@@ -35,7 +35,6 @@ class SignUp extends Dbh{
 
         return $result;
     }
-    
 }
 
 ?>
