@@ -109,7 +109,7 @@ main #home_main_up{
     background-color: #343434;
 }
 main #home_main_up #home_main_up_image img{
-    width: 200px;
+    width: 120px;
     display: block;
     margin-right: auto;
     margin-left: auto;
@@ -236,7 +236,7 @@ footer #home_footer_copyright p{
         margin: 0 auto;
     }
     main #home_main_up #home_main_up_image img{
-        width: 300px;
+        width: 250px;
     }
     main #home_main_up #home_main_up_text{
         width: 100%;

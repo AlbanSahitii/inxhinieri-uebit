@@ -50,7 +50,7 @@ if (isset($_SESSION['user_id'])){
       <div id="home_main_up">
         <div id="home_main_up_container">
           <div id="home_main_up_image">
-            <img src="assets/image/phone_image.png" alt="" />
+              <img name="myHomeSlide" id="home_up_slideshow" />
           </div>
           <div id="home_main_up_text">
             <h1>Track your movies and get notified when new ones come out</h1>
